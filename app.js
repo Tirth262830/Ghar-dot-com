@@ -163,9 +163,7 @@ app.get("/listings", wrapAsync(async (req, res) => {
 }));
 
 // app.js or routes.js
-const express = require('express');
-const router = express.Router();
-const Listing = require('./models/listing'); // assuming Listing is your model
+// assuming Listing is your model
 
 // Route to get listing's availability data
 app.get('/listings/:id/availability', async (req, res) => {
