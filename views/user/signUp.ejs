@@ -1,0 +1,65 @@
+<% layout("/listings/layouts/boilerplate") %>
+<link rel="stylesheet" href="/index.css">
+<style>
+    .intro-container {
+       max-width: 900px;
+       margin: auto;
+       margin-top: 20px;
+       padding: 20px;
+       background-color: #ffffff;
+       border-radius: 16px;
+       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+       text-align: center;
+       margin-bottom: 30px;
+   }
+   .intro-header h1 {
+       font-size: 36px;
+       color: #1a73e8;
+       margin-bottom: 10px;
+   }
+   .intro-header p {
+       font-size: 18px;
+       color: #555;
+       margin-bottom: 20px;
+   }
+   .intro-info {
+       font-size: 16px;
+       color: #666;
+   }
+   .intro-info a {
+       color: #1a73e8;
+   }
+   </style>
+<body>
+    <div class="intro-container">
+        <div class="intro-header">
+            <h1>Welcome to our Website</h1>
+            <p>Your gateway to a personalized and engaging experience.</p>
+        </div>
+        <div class="intro-info">
+            <p>At our Website, we offer a range of features to enhance your experience. Log in to access your dashboard, manage your account, and explore our latest offerings. If you need any assistance, check out our <a href="/help">Help Center</a> or contact <a href="mailto:ghar@gmail.com">Support</a>.</p>
+        </div>
+    </div>
+    <div class="card p-5" style="width: 100%; max-width: 400px; margin: 100px auto; border-radius: 15px; background-color: #f8f9fa; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e0e0e0;">
+        <h2 class="text-center mb-4" style="font-weight: 600; color: #333;">Signup on Ghar</h2>
+        <form action="/signup" method="post" novalidate class="needs-validation">
+            <div class="mb-4">
+                <label for="username" class="form-label" style="color: #555;">Username</label>
+                <input name="username" id="username" type="text" class="form-control" style="padding: 12px; border-radius: 8px; border: 1px solid #ced4da; background-color: #ffffff;" required />
+                <div class="valid-feedback" style="color: #28a745;">Username looks good</div>
+            </div>
+            
+            <div class="mb-4">
+                <label for="email" class="form-label" style="color: #555;">Email</label>
+                <input name="email" id="email" type="email" class="form-control" style="padding: 12px; border-radius: 8px; border: 1px solid #ced4da; background-color: #ffffff;" required />
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="form-label" style="color: #555;">Password</label>
+                <input name="password" id="password" type="password" class="form-control" style="padding: 12px; border-radius: 8px; border: 1px solid #ced4da; background-color: #ffffff;" required />
+            </div>
+            
+            <button class="btn btn-primary w-100 mt-3" style="padding: 12px; border-radius: 8px; background-color: #007bff; border: none;">Signup</button>
+        </form>
+    </div>
+</body>

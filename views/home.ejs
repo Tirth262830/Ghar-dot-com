@@ -1,0 +1,261 @@
+<% layout("/listings/layouts/boilerplate") %>
+<link rel="stylesheet" href="index.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <h1>Find Your Perfect Space, Whether for Today or Tomorrow.</h1>
+        </section>
+
+        <!-- Search Bar -->
+        <form id="searchForm" action="/listings" method="get">
+            <div class="search-bar">
+                <input type="text" id="searchInput" name="search" placeholder="Search for properties...">
+                <button>search</button>
+            </div>
+        </form>
+
+        <!-- Featured Listings -->
+        <div class="featured-listings">
+            <div class="featured-listing">
+                <img src="https://images.unsplash.com/photo-1605352081508-2e09927ecfe3?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dmFjYXRpb24lMjBob21lfGVufDB8fDB8fHww" alt="Vacation Home">
+                <div class="featured-listing-content">
+                    <h3>Luxury Vacation Home</h3>
+                    <p>Enjoy luxury and comfort in this beautiful vacation home. Perfect for your next getaway.</p>
+                    <a href="/listings">Learn More</a>
+                </div>
+            </div>
+            <div class="featured-listing">
+                <img src="https://smartasset.com/wp-content/uploads/sites/2/2021/07/for-rent-sign-in-front-of-gray-and-white-home-picture-id175401842.jpg" alt="Long Term Rental">
+                <div class="featured-listing-content">
+                    <h3>Cozy Long-Term Rental</h3>
+                    <p>Find a cozy and affordable rental for your long-term stay. Explore our options today.</p>
+                    <a href="/listings">Learn More</a>
+                </div>
+            </div>
+            <div class="featured-listing">
+                <img src="https://t3.ftcdn.net/jpg/05/81/99/76/360_F_581997651_DgGMqOvFjZdzQMtHpvUZQuTS9Ofu7hMv.jpg" alt="House for Sale">
+                <div class="featured-listing-content">
+                    <h3>Beautiful House for Sale</h3>
+                    <p>Find your dream home with our selection of beautiful houses available for sale.</p>
+                    <a href="/listings">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call-to-Action Section -->
+        <section class="cta-section">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for the latest updates and exclusive offers on properties.</p>
+            <a href="/newsletter">Subscribe Now</a>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="/submit-contact" method="get">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <blockquote>
+                "The service was fantastic! I found the perfect home in no time."
+                <cite>Armaan Puri</cite>
+            </blockquote>
+            <blockquote>
+                "Excellent experience. The team was very helpful and attentive."
+                <cite>Ayushya Jaiswal</cite>
+            </blockquote>
+        </section>
+
+        <!-- Social Media Integration -->
+        <div class="social-media">
+            <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
+            <a href="https://www.twitter.com/" class="fab fa-twitter"></a>
+            <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
+            <a href="https://www.linkedin.com/" class="fab fa-linkedin-in"></a>
+        </div>
+
+        <!-- Chatbot Section -->
+        <section class="chatbot">
+            <!-- <h2>Ask our Chatbot</h2> -->
+            <div id="chat-container">
+                <div id="chat-box">
+                    <div id="messages"></div>
+                </div>
+                <form id="chat-form">
+                    <input type="text" id="user-input" placeholder="Type your message..." required />
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+        
+        <style>
+        /* Center the chatbot container on the page */
+        /* .chatbot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        } */
+         .chatbot{
+            margin-left: 22rem;
+         }
+        
+        /* Style for the chatbot container box */
+        #chat-container {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        /* Styling the header */
+        .chatbot h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        
+        /* Chatbox messages container */
+        #chat-box {
+            height: 300px;
+            background-color: #e9e9e9;
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        /* Messages inside the chatbox */
+        #messages {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        /* Style for the input and button in the form */
+        #chat-form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #user-input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        #user-input:focus {
+            border-color: #2980b9;
+        }
+        
+        button[type="submit"] {
+            width: 18%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Responsive design for smaller screens */
+        @media (max-width: 500px) {
+            #chat-container {
+                width: 100%;
+                padding: 10px;
+            }
+        
+            #user-input {
+                width: 70%;
+            }
+        
+            button[type="submit"] {
+                width: 25%;
+            }
+        }
+        </style>
+        
+    </div>
+
+    <!-- Font Awesome CDN for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- Chatbot JavaScript -->
+    <script>
+        const chatForm = document.getElementById("chat-form");
+        const messagesDiv = document.getElementById("messages");
+
+        chatForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            // Get the user's input
+            const userInput = document.getElementById("user-input").value;
+
+            // Display the user's message
+            const userMessageDiv = document.createElement("div");
+            userMessageDiv.textContent = "You: " + userInput;
+            messagesDiv.appendChild(userMessageDiv);
+
+            // Clear input field
+            document.getElementById("user-input").value = "";
+
+            try {
+                // Send a request to the backend /api/chat
+                const response = await fetch("/api/chat", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ message: userInput }),
+                });
+
+                // Parse the chatbot's response
+                const data = await response.json();
+
+                // Display the chatbot's response
+                const botMessageDiv = document.createElement("div");
+                botMessageDiv.textContent = "Bot: " + data.response;
+                messagesDiv.appendChild(botMessageDiv);
+            } catch (error) {
+                console.error("Error with chatbot:", error);
+            }
+        });
+    </script>
+</body>
+</html>

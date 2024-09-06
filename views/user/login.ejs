@@ -1,0 +1,120 @@
+<!-- <% layout("/listings/layouts/boilerplate") %>
+<link rel="stylesheet" href="/index.css">
+<body>
+    <div class="card p-5" style="width: 100%; max-width: 380px; margin: 100px auto; border-radius: 15px; background-color: #f8f9fa; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border: 1px solid #e0e0e0;">
+        <h2 class="text-center mb-4" style="font-weight: 600; color: #333;">Login</h2>
+        <form action="/login" method="post" novalidate class="needs-validation">
+            <div class="mb-4">
+                <label for="username" class="form-label" style="color: #555;">Username</label>
+                <input name="username" id="username" type="text" class="form-control" style="padding: 12px; border-radius: 8px; border: 1px solid #ced4da; background-color: #ffffff;" required />
+            </div>
+            
+            <div class="mb-4">
+                <label for="password" class="form-label" style="color: #555;">Password</label>
+                <input name="password" id="password" type="password" class="form-control" style="padding: 12px; border-radius: 8px; border: 1px solid #ced4da; background-color: #ffffff;" required />
+            </div>
+            <button class="btn btn-primary w-100 mt-3" style="padding: 12px; border-radius: 8px; background-color: #007bff; border: none;">Login</button>
+        </form>
+    </div>
+</body> -->
+<% layout("/listings/layouts/boilerplate") %>
+<link rel="stylesheet" href="/index.css">
+<div class="intro-container">
+    <div class="intro-header">
+        <h1>Welcome back to our Website</h1>
+        <p>Your gateway to a personalized and engaging experience.</p>
+    </div>
+    <div class="intro-info">
+        <p> Log in to access your dashboard, manage your account, and explore our latest offerings. If you need any assistance, check out our <a href="/help">Help Center</a> or contact <a href="mailto:ghar@gmail.com">Support</a>.</p>
+    </div>
+</div>
+<div class="login-container" style="max-width: 400px; margin: auto; padding: 30px; margin-top: 40px; margin-bottom: 40px; background-color: #ffffff; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+    <div class="login-header" style="text-align: center; margin-bottom: 20px;">
+        <h2 style="font-weight: 700; color: #4a4a4a;">Welcome Back!</h2>
+        <p style="color: #888; font-size: 14px;">Login to access your account</p>
+    </div>
+    <form action="/login" method="post" novalidate class="needs-validation">
+        <div class="mb-4">
+            <label for="username" class="form-label" style="color: #555; font-size: 14px;">Username</label>
+            <input name="username" id="username" type="text" class="form-control" style="padding: 14px; border-radius: 12px; border: 1px solid #ced4da; background-color: #f9f9f9;" required />
+        </div>
+        
+        <div class="mb-4">
+            <label for="password" class="form-label" style="color: #555; font-size: 14px;">Password</label>
+            <input name="password" id="password" type="password" class="form-control" style="padding: 14px; border-radius: 12px; border: 1px solid #ced4da; background-color: #f9f9f9;" required />
+        </div>
+
+        <div class="mb-4" style="text-align: right;">
+            <a href="/reset-password" style="color: #1a73e8; font-size: 14px;">Forgot your password?</a>
+        </div>
+        
+        <button class="btn btn-primary w-100" style="padding: 14px; border-radius: 12px; background-color: #1a73e8; border: none; font-weight: 600;">Login</button>
+    </form>
+    <div class="login-footer" style="text-align: center; margin-top: 20px;">
+        <p style="color: #666; font-size: 14px;">Don't have an account? <a href="/signup" style="color: #1a73e8;">Sign up</a></p>
+    </div>
+    
+</div>
+
+<style>
+     .intro-container {
+        max-width: 900px;
+        margin: auto;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .intro-header h1 {
+        font-size: 36px;
+        color: #1a73e8;
+        margin-bottom: 10px;
+    }
+    .intro-header p {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+    .intro-info {
+        font-size: 16px;
+        color: #666;
+    }
+    .intro-info a {
+        color: #1a73e8;
+    }
+    @media (max-width: 768px) {
+        .login-container {
+            padding: 20px;
+        }
+
+        .form-label,
+        .form-control,
+        .btn {
+            font-size: 16px;
+        }
+
+        .login-header h2 {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .login-container {
+            padding: 15px;
+        }
+
+        .form-label,
+        .form-control,
+        .btn {
+            font-size: 14px;
+        }
+
+        .login-header h2 {
+            font-size: 20px;
+        }
+    }
+</style>
+

@@ -1,0 +1,355 @@
+<% layout("/listings/layouts/boilerplate") %>
+<div class="container mt-5 dark">
+    <!-- Hero Section -->
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8 dark">
+        <h1 class="display-4 mb-4 hero-title dark">Maximize Your Rental Income</h1>
+        <p class="lead mb-4 hero-text dark">Join our platform and start earning more by renting out your property. We provide the tools and support you need to succeed.</p>
+        <a href="/listings/new" class="btn btn-primary btn-lg hero-btn">List Your Property</a>
+      </div>
+    </div>
+  
+    <!-- Decorative Line -->
+    <hr class="decorative-line my-5">
+  
+    <!-- Benefits Section -->
+    <div class="row text-center benefits-section">
+      <div class="col-md-4 mb-4">
+        <div class="benefit-card">
+          <i class="bi bi-currency-exchange benefit-icon"></i>
+          <h3 class="benefit-title">Competitive Earnings</h3>
+          <p style="color: black;">Earn more with our competitive commission rates and transparent pricing model.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="benefit-card">
+          <i class="bi bi-shield-check benefit-icon"></i>
+          <h3 class="benefit-title">Secure & Trusted</h3>
+          <p style="color: black;">Your property is protected with our secure payment and verification systems.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="benefit-card">
+          <i class="bi bi-tools benefit-icon"></i>
+          <h3 class="benefit-title">Full Control</h3>
+          <p>Manage your listings, bookings, and payments easily with our user-friendly dashboard.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- How It Works Section -->
+    <div class="row mt-5">
+      <div class="col-lg-8 offset-lg-2">
+        <h2 class="text-center mb-4 section-title dark">How It Works</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h5 class="mb-1">1. List Your Property</h5>
+            <p class="mb-0">Sign up and create your listing with photos, descriptions, and pricing.</p>
+          </li>
+          <li class="list-group-item">
+            <h5 class="mb-1">2. Manage Bookings</h5>
+            <p class="mb-0">Easily manage your calendar, reservations, and guest communications.</p>
+          </li>
+          <li class="list-group-item">
+            <h5 class="mb-1">3. Get Paid</h5>
+            <p class="mb-0">Receive secure payments directly to your bank account after each stay.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+<div class="row mt-5">
+    <div class="col-lg-8 offset-lg-2">
+      <h2 class="text-center mb-4 section-title dark">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              How do I list my property?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Listing your property is simple. Just sign up, create your listing with details and photos, and you're good to go!
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              What fees do you charge?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              We charge a competitive commission on each booking. There are no hidden fees, and everything is transparent.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              How do I get paid?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Payments are securely transferred to your bank account after each guest's stay. You can track payments easily in your dashboard.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Contact Us Form -->
+  <div class="row mt-5">
+    <div class="col-lg-6 offset-lg-3">
+      <h2 class="text-center mb-4 section-title dark">Get in Touch</h2>
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Call to Action Section -->
+  <div class="row mt-5 text-center">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="cta-section p-5">
+        <h2 class="section-title">Ready to Get Started?</h2>
+        <p class="lead">Take the next step and start earning more from your property today.</p>
+        <a href="/listings/new" class="btn btn-lg btn-success mt-3">List Your Property Now</a>
+        <a href="/listings/learnmore" class="btn btn-lg btn-outline-secondary mt-3">Learn More</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Featured Hosts Section -->
+  <div class="row mt-5">
+    <div class="col-lg-8 offset-lg-2">
+      <h2 class="text-center mb-4 section-title dark">Meet Our Top Hosts</h2>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <div class="card border-0 shadow-sm">
+            <img src="WhatsApp Image 2024-08-21 at 12.39.47 AM.jpeg" class="card-img-top rounded-circle" alt="Host 1">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black;">Manav Shah</h5>
+              <p class="card-text">"I've been hosting on this platform for over a year, and it has been an amazing experience!"</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="card border-0 shadow-sm">
+            <img src="WhatsApp Image 2024-08-21 at 12.39.47 AM.jpeg" class="card-img-top rounded-circle" alt="Host 2">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black;">Jeet Shah</h5>
+              <p class="card-text">"The tools provided have made managing my property a breeze. Highly recommended!"</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="card border-0 shadow-sm">
+            <img src="WhatsApp Image 2024-08-21 at 12.39.47 AM.jpeg" class="card-img-top rounded-circle" alt="Host 3">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black;">Tirth Parikh</h5>
+              <p class="card-text">"I love the flexibility and control I have over my bookings and pricing."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Testimonials Section -->
+    <div class="row mt-5" style="margin-bottom: 15px;">
+      <div class="col-lg-8 offset-lg-2">
+        <h2 class="text-center mb-4 section-title dark">What Our Hosts Say</h2>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card shadow-sm border-0 rounded-3 testimonial-card">
+                <div class="card-body text-center">
+                  <p class="card-text">"Listing my property here has been a game-changer. The platform is easy to use, and I've seen a significant increase in bookings."</p>
+                  <h5 class="card-title" style="color: black;">- Manav Shah, Host</h5>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card shadow-sm border-0 rounded-3 testimonial-card">
+                <div class="card-body text-center">
+                  <p class="card-text">"The support team is fantastic and the platform is easy to use! They helped me get set up quickly and answered all my questions."</p>
+                  <h5 class="card-title" style="color: black;">- Jeet Shah, Host</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Custom CSS -->
+  <style>
+
+    p{
+        color: black;
+    }
+   
+    .hero-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #333;
+      animation: fadeInDown 1s ease-in-out;
+    }
+    
+    .hero-text {
+      font-size: 1.25rem;
+      color: #666;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+    
+    .hero-btn {
+      background-color: #ff7f50;
+      border: none;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+    
+    .hero-btn:hover {
+      background-color: #e76b45;
+    }
+  
+    .decorative-line {
+      border-top: 2px solid #ff7f50;
+      width: 80%;
+      margin: 0 auto;
+      animation: growLine 1s ease-in-out;
+    }
+    
+    .benefits-section {
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+  
+    .benefit-card {
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .benefit-icon {
+      font-size: 3rem;
+      color: #ff7f50;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+  
+    .benefit-title {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    .benefit-card:hover .benefit-icon {
+      color: #e76b45;
+    }
+  
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+  
+    .testimonial-card {
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+  
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .accordion-button {
+    color: #333;
+    font-weight: bold;
+    background-color: #f7f7f7;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .accordion-button:hover {
+    background-color: #ff7f50;
+    color: #fff;
+  }
+
+  .cta-section {
+    background-color: #ff7f50;
+    color: #fff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .cta-section:hover {
+    transform: translateY(-5px);
+  }
+
+  .featured-hosts .card {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .featured-hosts .card:hover {
+    transform: translateY(-10px);
+  }
+
+  .featured-hosts img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .featured-hosts img:hover {
+    transform: scale(1.1);
+  }
+   
+  </style>
+  

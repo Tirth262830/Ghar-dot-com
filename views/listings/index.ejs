@@ -1,0 +1,81 @@
+<%  layout("/listings/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="index.css">
+
+<body>
+  <!-- <h3 id="id1">Vacation Homes</h3> -->
+
+  <!-- Advanced Filtering Form -->
+  <form action="/listings" method="GET" class="filter-form" style="display: flex; gap: 15px; flex-wrap: wrap; align-items: flex-end; background-color: #efefef; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+      
+      <!-- Price Filter -->
+      <div style="flex-grow: 1;">
+          <label for="minPrice" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Min Price:</label>
+          <input type="number" id="minPrice" name="minPrice" placeholder="Minimum Price" value="<%= typeof minPrice !== 'undefined' ? minPrice : '' %>" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+      </div>
+      
+      <div style="flex-grow: 1;">
+          <label for="maxPrice" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Max Price:</label>
+          <input type="number" id="maxPrice" name="maxPrice" placeholder="Maximum Price" value="<%= typeof maxPrice !== 'undefined' ? maxPrice : '' %>" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+      </div>
+
+      <!-- Name Filter!-->
+      <div style="flex-grow: 1;">
+        <label for="country" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Country:</label>
+        <input type="text" id="country" name="country" placeholder="Country" value="<%= typeof country !== 'undefined' ? country : '' %>" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+    </div>
+    
+      <!-- Rating Filter -->
+      <div style="flex-grow: 1;">
+          <label for="rating" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Minimum Rating:</label>
+          <select id="rating" name="rating" style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+              <option value="">Any</option>
+              <option value="1">1 Star</option>
+              <option value="2">2 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="5">5 Stars</option>
+          </select>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+          <button type="submit" style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; font-weight: bold; transition: background-color 0.3s;">
+              Apply Filters
+          </button>
+      </div>
+  </form>
+  
+
+  <!-- Listings Section -->
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% if (allListings.length > 0) { %>
+      <% for(let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listingLink">
+          <div class="card col listing-card" style="margin-right: 15px;">
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.title %>" style="height: 20rem;"/>
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <b><%= listing.title %></b><br>
+                &#8377;<%= listing.price.toLocaleString("en-IN") %> / night<br>
+                
+              </p>
+            </div>
+          </div>
+        </a>
+      <% } %>
+    <% } else { %>
+      <p>No listings found matching your criteria.</p>
+    <% } %>
+  </div>
+
+  
+
+
+</body>
+
+
+
+
+

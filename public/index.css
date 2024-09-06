@@ -1,0 +1,271 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--primary-color);
+}
+html{
+    height: 100%;
+}
+.section{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+#dark{
+    width: 30px;
+}
+:root{
+    --primary-color: white;
+    --secondary-color: #000106;
+}
+
+.dark-theme{
+    --primary-color: #171717;
+    --secondary-color: #F9DBBA;
+}
+.dark{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+#id1{
+    color: var(--secondary-color);
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 2rem;
+}
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+    background-color: var(--primary-color);
+}
+
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+    color: var(--secondary-color);
+    
+}
+
+.card-text{
+    font-weight: 400 !important;
+}
+.listingLink{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+.show-image{
+    height: 30vh !important;
+}
+
+.btns{
+    display: flex;
+}
+footer{
+    margin-top: auto;
+    position: relative;
+    left:0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+.footer2{
+    background-color: #1F316F;
+    height: 50px;
+    font-size: 0.80rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.footer2 a{
+    text-decoration: none;
+    color: #F9DBBA;
+}
+.footer3{
+    display: flex;
+    height: 360px;
+    background-color: #1a2858;
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
+.f3{
+    height: 300px;
+    width: 112px;
+    font-size: 18px;
+    color: #F9DBBA;
+    font-weight: 600;
+}
+.ul-design{
+    padding: 0px;
+    font-weight: 100;
+    list-style: none;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.footer3 a{
+    text-decoration: none;
+    
+    color: #F9DBBA;
+}
+.footer3 li{
+    margin-top: 10px;
+}
+.f33{
+    height: 300px;
+    width: 118px;
+    font-size: 18px;
+    color: #F9DBBA;
+    font-weight: 600;
+}
+.f333{
+    height: 300px;
+    width: 187px;
+    font-size: 18px;
+    color: #F9DBBA;
+    font-weight: 600;
+}
+.f3333{
+    width: 200px;
+    height: 300px;
+    font-size: 18px;
+    color: #F9DBBA;
+    font-weight: 600;
+}
+.footer3 li:hover{
+    text-decoration: underline; 
+}
+
+.f-info-links, .f-info-brand{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a2858;
+    color: #F9DBBA;
+}
+.f-info-links a{
+    margin-right: 8px;
+    text-decoration: none;
+    color: #F9DBBA;
+}
+
+/* var dark = document.getElementById("dark");
+dark.onclick =  function loadDarkModePreference() {
+    const darkModePreference = localStorage.getItem('#dark');
+    
+    if (darkModePreference === 'enabled') {
+        document.body.classList.add('dark-theme');
+    }
+    window.addEventListener('load', loadDarkModePreference);
+
+// Attach event listener to the toggle button
+document.querySelector('#dark').addEventListener('click', toggle);
+}
+
+dark.onclick = function(){
+    document.body.classList.toggle("dark-theme"); */
+
+/* public/css/index.css */
+
+/* .filter-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-form label {
+    margin-right: 5px;
+}
+
+.filter-form input {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-form button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.filter-form button:hover {
+    background-color: #0056b3;
+} */
+
+/* Second */ 
+
+.filter-form {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    margin-bottom: 20px;
+}
+
+.filter-form label {
+    margin-right: 5px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+.filter-form input {
+    width: 150px; 
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.filter-form input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.filter-form button {
+    padding: 6px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1F316F;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-form button:hover {
+    background-color: rgb(7, 48, 113);
+    transform: translateY(-2px);
+}
+
+.filter-form button:active {
+    background-color: #003f7f;
+    transform: translateY(0);
+} 
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertise Your Property - Your Real Estate Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Advertise Your Property</h1>
+        <p>Fill out the form below to advertise your property on our platform.</p>
+
+        <form method="POST" action="/listings" novalidate class="needs-validation">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input name="listing[title]" placeholder="enter title" type="text" class="form-control" required />
+            
+            </div>
+            
+            <div class="mb-3">
+              <label for="description" class="form-label">description</label>
+              <textarea
+              name="listing[description]"
+              class="form-control"
+              required
+            ></textarea>
+            
+            </div>
+          
+            <div class="mb-3">
+              <label for="image" class="form-label">image link</label>
+              <input
+              name="listing[image]"
+              placeholder="enter image URL/Link"
+              type="text"
+              class="form-control"
+            />
+            
+            </div>
+               
+            <div class="row">
+              <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">price</label>
+                <input name="listing[price]" placeholder="enter price" type="number" class="form-control" required />
+                
+              </div>
+              
+              <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">country</label>
+                <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required />
+              </div>
+              
+            </div>
+    
+           
+           
+            
+            
+            <div class="mb-3">
+              <label for="location" class="form-label">location</label>
+              <input
+              name="listing[location]"
+              placeholder="enter location"
+              type="text"
+              class="form-control"
+              required
+            />
+            
+            </div>
+         
+           
+            <button class="btn btn-dark mt-3"style="background-color: #F9DBBA; margin-bottom: 20px; width: 130px; color: black">Add</button>
+           
+          </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<form id="chatForm">
+  <div class="chat-box">
+    <input type="text" id="userInput" name="userInput" placeholder="Ask me something" />
+    <button type="submit">Send</button>
+  </div>
+</form>
+
+<script>
+document.getElementById('chatForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const userInput = document.getElementById('userInput').value;
+
+  const response = await fetch('/chat', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userInput }),
+  });
+
+  const data = await response.json();
+  console.log("AI Response:", data.message);
+});
+</script>
+
