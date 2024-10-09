@@ -18,15 +18,17 @@
                 </div>
                 <div class="propertyOwners" > <a href="/propertyowner" style="color: black;">For Property Owners</a></div>
                 <div class="navbarLoginSignup">
-                    <% if(!currUser){ %>
-
-                    <div class="navbarLogin" style="text-decoration: none;"><a href="/login">Login</a></div>
-                    <div class="navbarSignup"><a href="/signup">Sign up</a></div>
-                    <%}%>
-                    <%if(currUser){%>
-                    <div class="navbarSignup"><a href="/logout">logout</a></div>
-                    <%}%>
+                    <% if (typeof currUser !== "undefined" && !currUser) { %>
+                        <div class="navbarLogin" style="text-decoration: none;">
+                            <a href="/login">Login</a>
+                        </div>
+                        <div class="navbarSignup"><a href="/signup">Sign up</a></div>
+                    <% } else { %>
+                        <div class="navbarSignup"><a href="/logout">Logout</a></div>
+                    <% } %>
                 </div>
+                
+                
              
                 <div class="navbarMenue"> <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top:10px ; color: #F9DBBA;">

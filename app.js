@@ -1,9 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
+//const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema, reviewSchema } = require('./schema.js');
 const passport=require("passport");
@@ -11,6 +14,9 @@ const LocalStrategy=require("passport-local");
 const User=require("./models/user.js");
 const app = express();
 const stripe = require('stripe')('your-stripe-secret-key');
+require('dotenv').config();
+
+
 // const multer  = require('multer')
 // const upload = multer({ dest: 'uploads/' });
 // const model = require('your-ai-library'); n
@@ -24,10 +30,13 @@ console.log('Review module loaded successfully');
 const session = require('express-session');
 const flash=require("connect-flash");
 // Database connection
-const MONGO_URL = "mongodb://127.0.0.1:27017/ghar";
-mongoose.connect(MONGO_URL)
-  .then(() => console.log("Connected to DB"))
-  .catch(err => console.log("Database connection error:", err));
+// const MONGO_URL = "mongodb://127.0.0.1:27017/ghar";
+
+const dbURI = process.env.MONGODB_URI || 'your-mongodb-uri-here';
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.log('Database connection error:', err));
 
 // Middleware setup
 app.use(express.static(path.join(__dirname, "/public")));
@@ -46,16 +55,36 @@ app.set("views", path.join(__dirname, "views"));
 //     httpOnly: true,
 //   },
 // };
+// Define the store variable before using it in session options
+const store = MongoStore.create({
+  mongoUrl: dbURI,
+  crypto: {
+    secret: process.env.SECRET
+  },
+  touchAfter: 24 * 3600,
+});
+
+// Corrected Session Options
 const sessionOptions = {
-  secret: "mysecretcode",
+  store,
+  secret: process.env.SECRET,
   resave: false,
-  saveUninitialized: true, // Corrected
+  saveUninitialized: true, // Fixed typo
   cookie: {
     expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
   },
 };
+
+// Improved error handling middleware
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Something went wrong";
+  res.status(statusCode).render("error.ejs", { err: { statusCode, message } });
+});
+
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require('dotenv').config();
 app.use(express.json());
@@ -90,6 +119,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
+  console.log('Current User in Middleware:', req.user);
   res.locals.success=req.flash("success");
   res.locals.error=req.flash("error");
   res.locals.currUser=req.user;
@@ -211,22 +241,24 @@ app.get("/listings/:id", validateObjectId, wrapAsync(async (req, res) => {
 
 //Create Route
 app.post("/listings", wrapAsync(async (req, res) => {
-  if(!req.isAuthenticated()){
-    req.session.redirectUrl=req.originalUrl;
-    req.flash("error","you must be logged in")
-    return res.redirect("/login")
-}
+  if (!req.isAuthenticated()) {
+    req.session.redirectUrl = req.originalUrl;
+    req.flash("error", "you must be logged in");
+    return res.redirect("/login");
+  }
+
   const { error } = listingSchema.validate(req.body);
   if (error) {
     throw new ExpressError(400, error.message);
   }
-    const newListing = new Listing(req.body.listing);
-    newListing.owner=req.user._id;
-    await newListing.save();
-    req.flash("success","New listing created successfully")
-    res.redirect("/listings");
-    
+  
+  const newListing = new Listing(req.body.listing); // This is likely where the error is
+  newListing.owner = req.user._id;
+  await newListing.save();
+  req.flash("success", "New listing created successfully");
+  res.redirect("/listings");
 }));
+
 // app.post("/listings", upload.single('listing[image]'), wrapAsync(async (req, res) => {
 //   if (!req.isAuthenticated()) {
 //     req.session.redirectUrl = req.originalUrl;
@@ -273,7 +305,7 @@ app.get("/listings/:id/edit", validateObjectId, wrapAsync(async (req, res) => {
   
   if(!listing.owner.equals(res.locals.currUser._id)){
     req.flash("error", "You do not have the right to edit");
-    return res.redirect(`/listings/${id}`);   
+    return res.redirect("/listings/${id}");   
   }
 
   if (!listing) {
@@ -298,7 +330,7 @@ app.put("/listings/:id", validateObjectId, wrapAsync(async (req, res) => {
 
   if (!listing.owner.equals(res.locals.currUser._id)) {
     req.flash("error", "You do not have the right to edit");
-    return res.redirect(`/listings/${id}`);
+    return res.redirect("/listings/${id}");
   }
 
   if (!listing) {
@@ -308,7 +340,7 @@ app.put("/listings/:id", validateObjectId, wrapAsync(async (req, res) => {
 
   await Listing.findByIdAndUpdate(id, { ...req.body.listing });
   req.flash("success", "Listing Updated");
-  res.redirect(`/listings/${id}`);
+  res.redirect("/listings/${id}");
 }));
 
 
@@ -325,7 +357,7 @@ app.delete("/listings/:id", validateObjectId, wrapAsync(async (req, res) => {
 
   if (!listing.owner.equals(res.locals.currUser._id)) {
     req.flash("error", "You do not have the right to delete");
-    return res.redirect(`/listings/${id}`);
+    return res.redirect("/listings/${id}");
   }
 
   const deletedListing = await Listing.findByIdAndDelete(id);
@@ -350,7 +382,7 @@ app.post("/listings/:id/reviews", wrapAsync(async (req, res) => {
   await listing.save();
   console.log("Review saved");
   req.flash("success","New Review created successfully")
-  res.redirect(`/listings/${listing._id}`);
+  res.redirect("/listings/${listing._id}");
 }));
 
 // Reviews - Delete
@@ -359,7 +391,7 @@ app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async (req, res) => {
   await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
   await Review.findByIdAndDelete(reviewId);
   req.flash("success"," Delete review successfully")
-  res.redirect(`/listings/${id}`);
+  res.redirect("/listings/${id}");
 }));
 //signup 
 app.get("/signup",(req,res)=>{
@@ -479,4 +511,5 @@ app.use((err, req, res, next) => {
 // Server setup
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
-});
+}); 
+
