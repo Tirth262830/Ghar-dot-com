@@ -30,11 +30,15 @@ console.log('Review module loaded successfully');
 const session = require('express-session');
 const flash=require("connect-flash");
 // Database connection
-// const MONGO_URL = "mongodb://127.0.0.1:27017/ghar";
+ const MONGO_URL = "mongodb://127.0.0.1:27017/ghar";
 
-const dbURI = process.env.MONGODB_URI || 'your-mongodb-uri-here';
+// const dbURI = process.env.MONGODB_URI || 'your-mongodb-uri-here';
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => console.log('Connected to MongoDB'))
+//     .catch(err => console.log('Database connection error:', err));
+
+mongoose.connect(MONGO_URL)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.log('Database connection error:', err));
 
@@ -56,18 +60,18 @@ app.set("views", path.join(__dirname, "views"));
 //   },
 // };
 // Define the store variable before using it in session options
-const store = MongoStore.create({
-  mongoUrl: dbURI,
-  crypto: {
-    secret: process.env.SECRET
-  },
-  touchAfter: 24 * 3600,
-});
+// const store = MongoStore.create({
+//   mongoUrl: dbURI,
+//   crypto: {
+//     secret: process.env.SECRET
+//   },
+//   touchAfter: 24 * 3600,
+// });
 
 // Corrected Session Options
 const sessionOptions = {
-  store,
-  secret: process.env.SECRET,
+
+  secret: "mysecretcode",
   resave: false,
   saveUninitialized: true, // Fixed typo
   cookie: {
@@ -512,4 +516,3 @@ app.use((err, req, res, next) => {
 app.listen(3000, () => {
   console.log("Server is listening on port 3000");
 }); 
-
