@@ -1,10 +1,10 @@
-# Ghar.com
+# 🚀 Ghar.com &nbsp; ![Static Badge](https://img.shields.io/badge/status-live-brightgreen)
+
+### 🔗 [Live Demo](https://ghar-dot-com.onrender.com/) • [GitHub](https://github.com/Tirth262830/Ghar-dot-com)
+
 
 **Ghar.com** is a vacation rental and listing platform that is developed as part of showcasing full-stack web development skills. This project integrates **HTML**, **CSS**, **JavaScript**, **Node.js**, **EJS**, and **MongoDB** to provide an interactive and user-friendly platform for users to browse vacation listings and book properties.
 
-## Live Demo
-
-Check out the live version of the website here: [Ghar.com Live Demo](https://ghar-dot-com.onrender.com/)
 
 ## Features
 
