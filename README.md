@@ -1,4 +1,4 @@
-# 🚀 Ghar.com &nbsp; ![Static Badge](https://img.shields.io/badge/status-live-brightgreen)
+# 🏠 Ghar.com &nbsp; ![Static Badge](https://img.shields.io/badge/status-live-brightgreen)
 
 ### 🔗 [Live Demo](https://ghar-dot-com.onrender.com/) • [GitHub](https://github.com/Tirth262830/Ghar-dot-com)
 
