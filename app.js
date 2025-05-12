@@ -69,6 +69,7 @@ app.set("views", path.join(__dirname, "views"));
 // });
 
 // Corrected Session Options
+require('dotenv').config();
 const sessionOptions = {
 
   secret: "mysecretcode",
