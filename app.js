@@ -49,6 +49,7 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+secret: process.env.SESSION_SECRET
 // const sessionOptions = {
 //   secret: "mysecretcode",
 //   resave: false,
